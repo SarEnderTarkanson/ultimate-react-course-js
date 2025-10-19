@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 
-function App() {
+export default function App() {
   const [advice, setAdvice] = useState("");
   const [count, setCount] = useState(0);
 
@@ -23,8 +23,6 @@ function App() {
     </div>
   );
 }
-
-export default App;
 
 function Message(props) {
   return (
