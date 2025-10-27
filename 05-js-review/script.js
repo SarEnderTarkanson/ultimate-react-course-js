@@ -143,7 +143,7 @@ function getBook(id) {
   return data.find((d) => d.id === id);
 }
 
-const book = getBook(2);
+const book = getBook(1);
 // const title = book.title;
 // const author = book.author;
 const { author, title, pages, publicationDate, genres, hasMovieAdaptation } =
@@ -155,7 +155,15 @@ genres;
 hasMovieAdaptation;
 // const primaryGenre = genres[0];
 // const secondaryGenre = genres[1];
-const [primaryGenre, secondaryGenre, tertiaryGenre] = genres;
+const [primaryGenre, secondaryGenre, ...otherGenres] = genres;
 console.log(primaryGenre);
 console.log(secondaryGenre);
-console.log(tertiaryGenre);
+console.log(...otherGenres);
+const newGenres = ["epic fantasy", ...genres];
+console.log(newGenres);
+const updatedBook = {
+  ...book,
+  moviePublicationDate: "2001-12-19",
+  pages: 1210,
+};
+updatedBook;
