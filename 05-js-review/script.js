@@ -172,3 +172,7 @@ const summary = `${title}, is a ${pages} book ${
   2 + 4
 } was written by ${author} in ${publicationDate.split("-")[0]}`;
 summary;
+
+const pagesRange = pages > 1000 ? "over 1 thousand" : "less than 1000";
+pagesRange;
+console.log(`The book has ${pagesRange} pages.`);
