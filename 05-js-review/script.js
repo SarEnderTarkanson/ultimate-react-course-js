@@ -143,7 +143,7 @@ function getBook(id) {
   return data.find((d) => d.id === id);
 }
 
-const book = getBook(1);
+const book = getBook(2);
 // const title = book.title;
 // const author = book.author;
 const { author, title, pages, publicationDate, genres, hasMovieAdaptation } =
@@ -184,3 +184,19 @@ console.log(`The book has ${pagesRange} pages.`);
 //   return str.split("-")[0];
 // }
 // console.log(getYear(publicationDate));
+
+console.log(true && "Some string");
+console.log(false && "Some string");
+console.log(hasMovieAdaptation && "This movie has movie adaptation");
+console.log("jonas" && "some string");
+console.log(0 && "some string");
+console.log(true || "Some string");
+console.log(false || "Some string");
+console.log(book.translations.spanish);
+const spanishTranslation = book.translations.spanish || "Not translated";
+spanishTranslation;
+console.log(book.reviews.librarything.reviewsCount);
+const countWrong = book.reviews.librarything.reviewsCount || "no data";
+countWrong;
+const count = book.reviews.librarything.reviewsCount ?? "no data";
+count;
