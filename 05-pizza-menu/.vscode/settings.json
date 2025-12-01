@@ -1,0 +1,23 @@
+{
+  "emmet.triggerExpansionOnTab": true,
+
+  "emmet.includeLanguages": {
+    "javascript": "javascriptreact",
+    "javascriptreact": "html",
+    "typescriptreact": "html"
+  },
+
+  "editor.acceptSuggestionOnEnter": "on",
+
+  "editor.quickSuggestions": {
+    "other": true,
+    "comments": false,
+    "strings": true
+  },
+
+  "html.autoClosingTags": true,
+  "editor.autoClosingBrackets": "languageDefined",
+
+  "emmet.showExpandedAbbreviation": "always",
+  "html.completion.attributeDefaultValue": "singlequotes"
+}
