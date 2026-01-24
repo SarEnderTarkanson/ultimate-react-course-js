@@ -66,20 +66,20 @@ function Header() {
 }
 
 function Menu() {
-  const pizzas = pizzaData;
-  //const pizzas = [];
+  // const pizzas = pizzaData;
+  const pizzas = [];
   const numPizzas = pizzas.length;
 
   return (
     <main className="menu">
       <h2>Our Menu</h2>
-      {numPizzas > 0 && (
+      {numPizzas > 0 ? (
         <ul className="pizzas">
           {pizzas.map((pizza) => (
             <Pizza key={pizza.name} pizzaObj={pizza} />
           ))}
         </ul>
-      )}
+      ) : <p>We're still working on our menu. Please come back later.</p>}
 
       {/* <Pizza
         name="Pizza Spinaci"
@@ -113,7 +113,7 @@ function Pizza(props) {
 
 function Footer() {
   const hour = new Date().getHours();
-  const openHour = 6;
+  const openHour = 3;
   const closeHour = 22;
   const isOpen = hour >= openHour && hour <= closeHour;
   console.log(isOpen);
@@ -136,5 +136,5 @@ const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
   <React.StrictMode>
     <App />
-  </React.StrictMode>
+  </React.StrictMode>,
 );
