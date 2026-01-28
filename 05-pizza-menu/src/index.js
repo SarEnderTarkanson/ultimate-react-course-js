@@ -66,8 +66,8 @@ function Header() {
 }
 
 function Menu() {
-  // const pizzas = pizzaData;
-  const pizzas = [];
+   const pizzas = pizzaData;
+  //const pizzas = [];
   const numPizzas = pizzas.length;
 
   return (
@@ -79,7 +79,9 @@ function Menu() {
             <Pizza key={pizza.name} pizzaObj={pizza} />
           ))}
         </ul>
-      ) : <p>We're still working on our menu. Please come back later.</p>}
+      ) : (
+        <p>We're still working on our menu. Please come back later.</p>
+      )}
 
       {/* <Pizza
         name="Pizza Spinaci"
@@ -99,6 +101,9 @@ function Menu() {
 
 function Pizza(props) {
   console.log(props);
+
+  if(props.pizzaObj.soldOut) return null;
+
   return (
     <div className="pizza">
       <img src={props.pizzaObj.photoName} alt="Pizza Spinaci" />
@@ -118,6 +123,12 @@ function Footer() {
   const isOpen = hour >= openHour && hour <= closeHour;
   console.log(isOpen);
 
+  if (!isOpen) {
+    return (
+      <p>We're open until {closeHour}:00. Come visit us or order online.</p>
+    );
+  }
+
   return (
     <footer className="footer">
       {isOpen && (
@@ -136,5 +147,5 @@ const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
   <React.StrictMode>
     <App />
-  </React.StrictMode>,
+  </React.StrictMode>
 );
