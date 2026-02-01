@@ -66,7 +66,7 @@ function Header() {
 }
 
 function Menu() {
-   const pizzas = pizzaData;
+  const pizzas = pizzaData;
   //const pizzas = [];
   const numPizzas = pizzas.length;
 
@@ -102,7 +102,7 @@ function Menu() {
 function Pizza(props) {
   console.log(props);
 
-  if(props.pizzaObj.soldOut) return null;
+  if (props.pizzaObj.soldOut) return null;
 
   return (
     <div className="pizza">
@@ -118,7 +118,7 @@ function Pizza(props) {
 
 function Footer() {
   const hour = new Date().getHours();
-  const openHour = 3;
+  const openHour = 0;
   const closeHour = 22;
   const isOpen = hour >= openHour && hour <= closeHour;
   console.log(isOpen);
@@ -131,21 +131,27 @@ function Footer() {
 
   return (
     <footer className="footer">
-      {isOpen && (
-        <div className="order">
-          <p>We're open until {closeHour}:00. Come visit us or order online.</p>
-          <button className="btn">Order</button>
-        </div>
-      )}
+      {isOpen && <Order closeHour={closeHour} />}
     </footer>
   );
 
   //return React.createElement("footer", null, "We're currently open!")
 }
 
+function Order(props) {
+  return (
+    <div className="order">
+      <p>
+        We're open until {props.closeHour}:00. Come visit us or order online.
+      </p>
+      <button className="btn">Order</button>
+    </div>
+  );
+}
+
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
   <React.StrictMode>
     <App />
-  </React.StrictMode>
+  </React.StrictMode>,
 );
